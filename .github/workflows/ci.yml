@@ -10,10 +10,21 @@ on:
 jobs:
   test:
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: baihe-autogui-inspect
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          path: baihe-autogui-inspect
+
+      - name: Check out baihe-autogui sibling repository
+        uses: actions/checkout@v4
+        with:
+          repository: jiangbaihe/baihe-autogui
+          path: baihe-autogui
 
       - name: Set up Python
         uses: actions/setup-python@v5
