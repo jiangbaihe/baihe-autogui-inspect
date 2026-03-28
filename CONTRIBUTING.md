@@ -27,6 +27,7 @@ Project priorities:
 - Do not replace the local editable source with a published dependency during normal iteration
 - Prefer reusing dependencies already declared by `baihe-autogui` instead of duplicating them here
 - Only add an inspect-side dependency when it is truly specific to `baihe-autogui-inspect`
+- CI checks out a pinned `baihe-autogui` ref; when bumping that baseline, update the workflows and regenerate `uv.lock` against the same ref
 
 ## Repository Landmarks
 
@@ -52,6 +53,7 @@ uv sync --dev
 uv run pytest -q
 uv run ruff check .
 uv run mypy src tests
+uv run pre-commit run --all-files
 uv build
 ```
 
@@ -66,7 +68,8 @@ uv run --python 3.8 --no-project --with ./dist/*.whl python scripts/smoke_import
 1. Update code, tests, and docs.
 2. Update the version in `pyproject.toml`.
 3. Refresh `uv.lock` if the version or dependencies changed.
-4. Run local checks on Python 3.8:
+4. If the `baihe-autogui` baseline changes, update the pinned ref in GitHub workflows and regenerate `uv.lock` against that exact ref.
+5. Run local checks on Python 3.8:
 
 ```bash
 uv sync --dev
