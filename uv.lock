@@ -10,7 +10,7 @@ resolution-markers = [
 
 [[package]]
 name = "baihe-autogui"
-version = "0.1.12"
+version = "0.1.13"
 source = { editable = "../baihe-autogui" }
 dependencies = [
     { name = "loguru" },
@@ -40,7 +40,7 @@ dev = [
 
 [[package]]
 name = "baihe-autogui-inspect"
-version = "0.1.2"
+version = "0.1.3"
 source = { editable = "." }
 dependencies = [
     { name = "baihe-autogui" },
@@ -58,7 +58,8 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "baihe-autogui", editable = "../baihe-autogui" },
-    { name = "pyside6", specifier = "==6.1.3" },
+    { name = "pyside6", marker = "python_full_version == '3.8.*'", specifier = "==6.1.3" },
+    { name = "pyside6", marker = "python_full_version >= '3.9'", specifier = ">=6.1.3,<7" },
 ]
 
 [package.metadata.requires-dev]

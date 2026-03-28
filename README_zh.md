@@ -20,7 +20,23 @@
 - Python >=3.8
 - `uv` 或 `pip`
 
+为了兼容 Windows 7，Python 3.8 环境会固定安装 `PySide6==6.1.3`，这也是当前项目视角下最后一个可安全用于 Win7 的 PySide6 版本。Python 3.9 及以上则会自动解析到更新的兼容 `PySide6` 版本。
+
 ## 安装
+
+普通使用者推荐：
+
+```bash
+pip install "baihe-autogui[inspect]"
+```
+
+也可以直接安装 inspect 工具本身：
+
+```bash
+pip install baihe-autogui-inspect
+```
+
+`baihe-autogui[extra]` 仍保留为同一组扩展依赖的兼容别名。
 
 本地开发环境推荐使用：
 

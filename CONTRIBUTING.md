@@ -18,10 +18,14 @@ Project priorities:
 - Local development uses Python `3.8` as the baseline
 - Lint, tests, and release validation should be run on Python `3.8`
 - When compatibility choices are unclear, prefer the option that keeps Python 3.8 working
+- Python `3.8` is the baseline because it is the last Python release that still runs on Windows 7
+- Python `3.8` must stay pinned to `PySide6==6.1.3`, which is the last Qt line this project treats as Win7-safe
+- Python `3.9+` may resolve a newer compatible `PySide6`
 
 ## Dependency And Workspace Rules
 
 - `baihe-autogui-inspect` depends on `baihe-autogui`
+- End users should normally install inspect via `baihe-autogui[inspect]` or `baihe-autogui[extra]`
 - Local workspace development uses `tool.uv.sources` to point at `../baihe-autogui`
 - Keep the sibling repository layout stable during development
 - Do not replace the local editable source with a published dependency during normal iteration
@@ -44,6 +48,7 @@ Project priorities:
 - When user-visible behavior changes, update `README.md`, `README_zh.md`, and `CHANGELOG.md`
 - When packaging or runtime policy changes, update this file and `pyproject.toml` together
 - Keep Windows-first assumptions explicit; this project is not a cross-platform promise
+- Keep the Win7 / Python 3.8 / `PySide6==6.1.3` relationship explicit in both metadata and docs
 - Prefer tests that mock GUI state where practical
 
 ## Common Commands

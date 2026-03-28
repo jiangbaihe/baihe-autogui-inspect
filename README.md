@@ -20,7 +20,23 @@ This project is based on the earlier `pyside6-inspect` work originally developed
 - Python >=3.8
 - `uv` or `pip`
 
+For Windows 7 compatibility, Python 3.8 environments are pinned to `PySide6==6.1.3`, which is the last PySide6 line this project treats as Win7-safe. Python 3.9 and newer resolve to a newer compatible `PySide6` automatically.
+
 ## Installation
+
+Recommended for end users:
+
+```bash
+pip install "baihe-autogui[inspect]"
+```
+
+Or install the inspect tool directly:
+
+```bash
+pip install baihe-autogui-inspect
+```
+
+`baihe-autogui[extra]` remains available as a compatibility alias for the same extension set.
 
 For local development:
 
