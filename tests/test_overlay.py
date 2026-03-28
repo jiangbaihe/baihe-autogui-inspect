@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtCore import QRect
 
@@ -28,5 +28,3 @@ def test_hide_rect_clears_current_rect(qapp):
     overlay.hide_rect()
 
     assert overlay._local_rect() is None
-
-

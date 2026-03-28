@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QLabel, QPlainTextEdit, QPushButton, QVBoxLayout, QWidget
@@ -64,5 +64,3 @@ class PlaygroundPanel(QWidget):
         self.runButton.setEnabled(False)
         self.runButton.setText("Run Locator Code")
         self.set_status("Select a control to generate locator code.")
-
-

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import sys
 
@@ -10,5 +10,3 @@ from PySide6.QtWidgets import QApplication
 def qapp():
     app = QApplication.instance() or QApplication(sys.argv)
     yield app
-
-

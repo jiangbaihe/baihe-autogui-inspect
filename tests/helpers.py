@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 
 class UiElementStub:
@@ -22,5 +22,3 @@ class UiElementStub:
 
     def iter_children(self):
         return iter(())
-
-

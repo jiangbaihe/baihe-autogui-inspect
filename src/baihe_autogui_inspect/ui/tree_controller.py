@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import time
 from functools import partial
@@ -406,5 +406,3 @@ class TreeController(QObject):
         if started_at is None:
             return 0.0
         return max(0.0, time.perf_counter() - started_at)
-
-

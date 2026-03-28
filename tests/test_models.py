@@ -1,4 +1,4 @@
-﻿"""Tests for Qt models; requires a QApplication instance."""
+"""Tests for Qt models; requires a QApplication instance."""
 
 from __future__ import annotations
 
@@ -165,5 +165,3 @@ class TestControlTreeModel:
         model = ControlTreeModel(root)
         top_index = model.index(0, 0)
         assert model.rowCount(top_index) == 0
-
-

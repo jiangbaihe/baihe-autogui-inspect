@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from loguru import logger
 from PySide6.QtCore import Signal
@@ -31,5 +31,3 @@ class TreeLoader(WorkerThread):
         root, path_signatures = self._collect_tree()
         logger.info(f"TreeLoader finished: {len(root.children)} top-level nodes")
         self.loaded.emit(root, path_signatures)  # type: ignore[attr-defined]
-
-

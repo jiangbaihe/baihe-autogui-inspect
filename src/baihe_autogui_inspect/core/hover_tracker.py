@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from loguru import logger
 from PySide6.QtCore import QThread, Signal
@@ -65,5 +65,3 @@ class HoverTracker(QThread):
         if last_rect is not None:
             self.cleared.emit()  # type: ignore[attr-defined]
         return None
-
-

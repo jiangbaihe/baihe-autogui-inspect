@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from loguru import logger
 from PySide6.QtCore import QThread, Signal
@@ -19,5 +19,3 @@ class WorkerThread(QThread):
 
     def _run_impl(self) -> None:
         raise NotImplementedError
-
-

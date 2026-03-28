@@ -1,4 +1,4 @@
-﻿"""Tests for baihe_autogui_inspect.core.inspector; pure Python, no Qt required."""
+"""Tests for baihe_autogui_inspect.core.inspector; pure Python, no Qt required."""
 
 from __future__ import annotations
 
@@ -410,5 +410,3 @@ def test_prepare_path_refreshes_all_ancestor_siblings():
         child.label == make_node(tree_sibling, "uia").label for child in refreshed_group.children
     )
     assert any(child.label == target_tree.label for child in refreshed_group.children)
-
-

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtWidgets import QAbstractItemView, QStatusBar, QTableView
 
@@ -23,5 +23,3 @@ class NodeDetailsPresenter:
 
     def clear(self) -> None:
         self._model.set_rows([])
-
-

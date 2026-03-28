@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtWidgets import QPushButton
 
@@ -177,5 +177,3 @@ def test_cancel_shows_window_and_resets_button(qapp):
         "activate",
     ]
     assert pick_button.isChecked() is False
-
-

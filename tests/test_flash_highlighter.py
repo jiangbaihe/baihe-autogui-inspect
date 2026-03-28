@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from baihe_autogui_inspect.ui.flash_highlighter import FlashHighlighter
 
@@ -65,5 +65,3 @@ def test_advance_flash_clears_after_remaining_steps():
     highlighter._advance_flash()
 
     assert calls == ["show:(1, 2, 11, 22)", "timer_stop", "hide"]
-
-

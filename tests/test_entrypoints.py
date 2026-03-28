@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import importlib
 
@@ -39,5 +39,3 @@ def test_create_application_sets_application_name(qapp):
     app = module._create_application(["baihe-inspect"])
 
     assert app.applicationName() == module.APP_NAME
-
-

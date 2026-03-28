@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import ctypes
 from typing import Any
@@ -121,5 +121,3 @@ def get_cursor_pos() -> tuple[int, int]:
     point = _POINT()
     _user32.GetCursorPos(ctypes.byref(point))
     return point.x, point.y
-
-

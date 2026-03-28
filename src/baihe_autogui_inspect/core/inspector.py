@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
@@ -329,5 +329,3 @@ def collect_top_level(backend: str) -> NodeInfo:
     root.anchor_prepared = True
     logger.info(f"Top-level collection done: {len(root.children)} windows")
     return root
-
-

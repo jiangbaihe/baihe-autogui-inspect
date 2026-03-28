@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from loguru import logger
 from PySide6.QtCore import QEvent, Qt, QTimer
@@ -354,5 +354,3 @@ class MainWindow(QMainWindow):
 
     def _restore_window_foreground(self) -> None:
         show_window_foreground(self)
-
-

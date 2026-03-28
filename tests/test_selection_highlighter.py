@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from baihe_autogui_inspect.ui.selection_highlighter import SelectionHighlighter
 
@@ -62,5 +62,3 @@ def test_sync_clears_overlay_when_disallowed(monkeypatch):
     highlighter.sync(object(), allowed=False)
 
     assert calls == ["show:(1, 2, 11, 22)", "hide"]
-
-

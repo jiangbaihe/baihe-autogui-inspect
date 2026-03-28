@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtCore import QObject, QTimer, Signal
 from PySide6.QtGui import QColor
@@ -126,5 +126,3 @@ class PickModeController(QObject):
 
     def _show_window(self) -> None:
         show_window_foreground(self._window)
-
-

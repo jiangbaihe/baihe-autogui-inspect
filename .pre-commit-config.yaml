@@ -10,9 +10,8 @@
     hooks:
       - id: mypy
         name: mypy
-        entry: uv run mypy
+        entry: uv run mypy src tests
         language: system
         types: [python]
         pass_filenames: false
-        args: [src/]
 

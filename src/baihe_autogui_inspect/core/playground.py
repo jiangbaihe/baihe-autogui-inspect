@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import Any
 
@@ -172,5 +172,3 @@ class PlaygroundRunner(WorkerThread):
 
     def _run_impl(self) -> None:
         self.resolved.emit(run_locator_code(self._code))  # type: ignore[attr-defined]
-
-

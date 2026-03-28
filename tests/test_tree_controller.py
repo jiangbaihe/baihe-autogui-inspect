@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtWidgets import QTreeView
 
@@ -20,5 +20,3 @@ def test_current_node_tracks_tree_selection(qapp):
 
     assert controller.current_node() is not None
     assert controller.current_node().label == child.label
-
-

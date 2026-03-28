@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import cast
 
@@ -73,5 +73,3 @@ class PropertyTableModel(QAbstractTableModel):
         if role == Qt.DisplayRole and orientation == Qt.Horizontal:
             return self._HEADERS[section]
         return super().headerData(section, orientation, role)
-
-

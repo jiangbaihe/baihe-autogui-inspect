@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from loguru import logger
 from PySide6.QtCore import Signal
@@ -24,5 +24,3 @@ class ChildLoader(WorkerThread):
         logger.debug(f"ChildLoader: preparing anchor '{self._node.label}'")
         children = self._prepare_children()
         self.loaded.emit(children)  # type: ignore[attr-defined]
-
-

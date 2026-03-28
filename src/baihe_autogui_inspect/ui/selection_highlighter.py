@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtCore import QObject
 from PySide6.QtGui import QColor
@@ -32,5 +32,3 @@ class SelectionHighlighter(QObject):
         if self._overlay is None:
             return
         self._overlay.hide_rect()
-
-

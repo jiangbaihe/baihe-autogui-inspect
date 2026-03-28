@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import pytest
 
@@ -89,5 +89,3 @@ def test_run_locator_code_uses_wrapper_object():
 def test_run_locator_code_requires_target_assignment():
     with pytest.raises(ValueError):
         run_locator_code("value = 123")
-
-

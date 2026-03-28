@@ -1,6 +1,6 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
-from typing import Optional, Protocol, TypeVar
+from typing import Protocol, TypeVar
 
 from PySide6.QtCore import QSignalBlocker
 
@@ -14,7 +14,7 @@ class _DisposableWorker(Protocol):
 WorkerT = TypeVar("WorkerT", bound=_DisposableWorker)
 
 
-def dispose_worker(worker: Optional[WorkerT]) -> Optional[WorkerT]:  # noqa: UP045
+def dispose_worker(worker: WorkerT | None) -> WorkerT | None:
     if worker is None:
         return None
     if worker.isRunning():
@@ -34,5 +34,3 @@ def show_window_foreground(window) -> None:
     window.show()
     window.raise_()
     window.activateWindow()
-
-

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtWidgets import QAbstractItemView, QLabel, QStatusBar, QTableView
 
@@ -45,5 +45,3 @@ def test_timing_presenter_formats_failed_state(qapp):
 
     assert "Load failed: 1.23s | failed | boom" == label.text()
     assert "#b91c1c" in label.styleSheet()
-
-

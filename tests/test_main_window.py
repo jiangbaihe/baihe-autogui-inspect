@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from baihe_autogui_inspect.ui.main_window import MainWindow
 
@@ -305,5 +305,3 @@ def test_on_playground_error_updates_status_without_restoring_window():
         "status:Locator code failed: boom",
         "show:Locator code failed: boom",
     ]
-
-

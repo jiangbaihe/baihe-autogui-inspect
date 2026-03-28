@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from baihe_autogui_inspect.core.hover_tracker import HoverTracker
 
@@ -54,5 +54,3 @@ def test_clear_last_rect_emits_only_when_needed():
 
     assert tracker._clear_last_rect((1, 2, 11, 22)) is None
     assert calls == ["cleared"]
-
-

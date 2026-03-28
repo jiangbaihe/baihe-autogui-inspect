@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import os
 import sys
@@ -69,4 +69,3 @@ def setup_logging(level: str | None = None, log_file: str | Path | None = None) 
     _configure_file_logging(resolved_log_path)
     logger.debug(f"Logging initialized: level={resolved_level} file='{resolved_log_path}'")
     return resolved_log_path
-

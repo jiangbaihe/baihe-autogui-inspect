@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from baihe_autogui_inspect.core.pick_loader import _build_ancestry, _is_button_pressed, _parent_of
 
@@ -49,5 +49,3 @@ def test_is_button_pressed_checks_high_bit(monkeypatch):
 
     assert _is_button_pressed(1) is True
     assert _is_button_pressed(2) is False
-
-

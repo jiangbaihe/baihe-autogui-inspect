@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -34,5 +34,3 @@ def test_setup_logging_returns_created_log_path(monkeypatch, tmp_path):
     assert isinstance(log_path, Path)
     assert log_path == tmp_path / "logs" / "app.log"
     assert log_path.parent.exists()
-
-

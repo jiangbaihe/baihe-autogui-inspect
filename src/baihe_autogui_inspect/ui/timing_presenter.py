@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from PySide6.QtWidgets import QLabel
 
@@ -25,5 +25,3 @@ class TimingPresenter:
 
         self._label.setText(f"{action}: {elapsed:.2f}s{slow_text}{detail_text}")
         self._label.setStyleSheet(f"color: {color};" if color else "")
-
-

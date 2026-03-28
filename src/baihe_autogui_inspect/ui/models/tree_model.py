@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import Optional, cast
 
@@ -99,5 +99,3 @@ class ControlTreeModel(QStandardItemModel):
         item = self._item(index)
         if item is not None:
             item.setData(loading, LOADING_ROLE)
-
-
