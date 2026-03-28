@@ -1,0 +1,71 @@
+[project]
+name = "baihe-autogui-inspect"
+version = "0.1.0"
+description = "A Windows GUI inspection companion tool for baihe-autogui"
+readme = "README.md"
+keywords = ["automation", "inspect", "gui", "windows", "pywinauto"]
+authors = [
+    { name = "jiangbaihe", email = "baiheqiuhan@qq.com" }
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "baihe-autogui>=0.1.10",
+    "PySide6==6.1.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/jiangbaihe/baihe-autogui-inspect"
+Repository = "https://github.com/jiangbaihe/baihe-autogui-inspect"
+Issues = "https://github.com/jiangbaihe/baihe-autogui-inspect/issues"
+
+[project.scripts]
+baihe-inspect = "baihe_autogui_inspect.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/baihe_autogui_inspect"]
+
+[tool.uv.sources]
+baihe-autogui = { path = "../baihe-autogui", editable = true }
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+    "pre-commit",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "PySide6.*"
+ignore_errors = true
