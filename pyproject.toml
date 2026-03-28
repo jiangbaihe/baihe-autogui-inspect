@@ -44,9 +44,6 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/baihe_autogui_inspect"]
 
-[tool.uv.sources]
-baihe-autogui = { path = "../baihe-autogui", editable = true }
-
 [dependency-groups]
 dev = [
     "pytest",

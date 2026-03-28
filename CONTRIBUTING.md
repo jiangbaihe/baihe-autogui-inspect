@@ -26,12 +26,22 @@ Project priorities:
 
 - `baihe-autogui-inspect` depends on `baihe-autogui`
 - End users should normally install inspect via `baihe-autogui[inspect]` or `baihe-autogui[extra]`
-- Local workspace development uses `tool.uv.sources` to point at `../baihe-autogui`
-- Keep the sibling repository layout stable during development
-- Do not replace the local editable source with a published dependency during normal iteration
 - Prefer reusing dependencies already declared by `baihe-autogui` instead of duplicating them here
 - Only add an inspect-side dependency when it is truly specific to `baihe-autogui-inspect`
-- CI checks out a pinned `baihe-autogui` ref; when bumping that baseline, update the workflows and regenerate `uv.lock` against the same ref
+- CI and release validation should resolve `baihe-autogui` from publishable package metadata, not from a checked-out sibling workspace
+- When regenerating `uv.lock`, prefer `uv lock --no-sources` so the lockfile does not accidentally capture a local editable sibling checkout
+- For local cross-repo debugging against an unreleased `baihe-autogui`, install it explicitly after `uv sync`, for example:
+
+```bash
+uv pip install -e ../baihe-autogui --no-deps
+```
+
+## Release Order Policy
+
+- `baihe-autogui` must remain independently releasable
+- `baihe-autogui-inspect` may depend on a newer published `baihe-autogui`
+- If inspect needs a new main-package capability, release `baihe-autogui` first, then release `baihe-autogui-inspect`
+- Do not republish `baihe-autogui` just to point at every new inspect patch, as long as the existing `inspect` / `extra` range already covers that compatible release line
 
 ## Repository Landmarks
 
@@ -62,6 +72,12 @@ uv run pre-commit run --all-files
 uv build
 ```
 
+Optional local integration override:
+
+```bash
+uv pip install -e ../baihe-autogui --no-deps
+```
+
 If needed, run the wheel smoke check:
 
 ```bash
@@ -73,7 +89,12 @@ uv run --python 3.8 --no-project --with ./dist/*.whl python scripts/smoke_import
 1. Update code, tests, and docs.
 2. Update the version in `pyproject.toml`.
 3. Refresh `uv.lock` if the version or dependencies changed.
-4. If the `baihe-autogui` baseline changes, update the pinned ref in GitHub workflows and regenerate `uv.lock` against that exact ref.
+4. Regenerate `uv.lock` with publishable metadata semantics:
+
+```bash
+uv lock --no-sources
+```
+
 5. Run local checks on Python 3.8:
 
 ```bash

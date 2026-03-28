@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- Stopped wiring inspect development and release workflows to a checked-out local `baihe-autogui` workspace by default; CI and release validation now rely on publishable package metadata, while local cross-repo overrides are documented as an explicit opt-in step.
+
 ## [0.1.4] - 2026-03-29
 
 ### Fixed

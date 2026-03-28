@@ -38,6 +38,8 @@ pip install baihe-autogui-inspect
 
 `baihe-autogui[extra]` remains available as a compatibility alias for the same extension set.
 
+The main package's `inspect` / `extra` extras track a compatible inspect release line, not necessarily the newest inspect patch on day one. This avoids circular release pressure between the two repositories.
+
 For local development:
 
 ```bash
@@ -48,6 +50,12 @@ Or:
 
 ```bash
 pip install -e .
+```
+
+If you need to test inspect against an unreleased local checkout of `baihe-autogui`, install that workspace explicitly after syncing:
+
+```bash
+uv pip install -e ../baihe-autogui --no-deps
 ```
 
 ## Run

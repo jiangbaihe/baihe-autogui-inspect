@@ -22,13 +22,6 @@ jobs:
         with:
           path: baihe-autogui-inspect
 
-      - name: Check out baihe-autogui sibling repository
-        uses: actions/checkout@v4
-        with:
-          repository: jiangbaihe/baihe-autogui
-          ref: v0.1.15
-          path: baihe-autogui
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -55,7 +48,7 @@ jobs:
       - name: Smoke test built wheel
         run: |
           $wheel = (Get-ChildItem dist\*.whl | Select-Object -First 1).FullName
-          uv run --python 3.8 --no-project --with ..\baihe-autogui --with $wheel python scripts/smoke_import.py
+          uv run --python 3.8 --no-project --with $wheel python scripts/smoke_import.py
 
       - name: Upload distribution artifacts
         uses: actions/upload-artifact@v4

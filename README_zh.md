@@ -38,6 +38,8 @@ pip install baihe-autogui-inspect
 
 `baihe-autogui[extra]` 仍保留为同一组扩展依赖的兼容别名。
 
+主包里的 `inspect` / `extra` 扩展依赖会跟随一个兼容的 inspect 版本线，而不追求每一个 inspect patch 发布后都立刻同步到最新版本。这样可以避免两个仓库之间形成循环发版压力。
+
 本地开发环境推荐使用：
 
 ```bash
@@ -48,6 +50,12 @@ uv sync
 
 ```bash
 pip install -e .
+```
+
+如果需要让 inspect 对接一个尚未发布的本地 `baihe-autogui` 工作区，请在同步环境后显式安装它：
+
+```bash
+uv pip install -e ../baihe-autogui --no-deps
 ```
 
 ## 运行
