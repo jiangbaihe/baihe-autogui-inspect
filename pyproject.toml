@@ -1,6 +1,6 @@
 [project]
 name = "baihe-autogui-inspect"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Windows GUI inspection companion tool for baihe-autogui"
 readme = "README.md"
 keywords = ["automation", "inspect", "gui", "windows", "pywinauto"]

@@ -53,4 +53,4 @@ jobs:
       - name: Smoke test built wheel
         run: |
           $wheel = (Get-ChildItem dist\*.whl | Select-Object -First 1).FullName
-          uv run --python 3.8 --no-project --with $wheel python scripts/smoke_import.py
+          uv run --python 3.8 --no-project --with ..\baihe-autogui --with $wheel python scripts/smoke_import.py

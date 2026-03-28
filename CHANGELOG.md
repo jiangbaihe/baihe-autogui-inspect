@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-03-29
+
+### Fixed
+
+- Fixed the exported `__version__` value so installed wheels report the package metadata version correctly.
+- Updated smoke-test validation to install the sibling `baihe-autogui` dependency from the checked-out workspace during CI and release builds.
+- Corrected release artifact upload paths so workflow artifacts are collected from the checked-out subdirectory layout.
+
 ## [0.1.1] - 2026-03-28
 
 ### Added
