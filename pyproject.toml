@@ -1,6 +1,6 @@
 [project]
 name = "baihe-autogui-inspect"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Windows GUI inspection companion tool for baihe-autogui"
 readme = "README.md"
 keywords = ["automation", "inspect", "gui", "windows", "pywinauto"]
@@ -23,7 +23,7 @@ classifiers = [
     "Topic :: Utilities",
 ]
 dependencies = [
-    "baihe-autogui>=0.1.10",
+    "baihe-autogui>=0.1.11",
     "PySide6==6.1.3",
 ]
 

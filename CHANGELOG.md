@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-03-28
+
 ### Added
 
 - Added Windows GitHub Actions workflows for CI and tag-driven releases.
@@ -13,6 +15,7 @@ All notable changes to this project will be documented in this file.
 
 - Relaxed the published runtime requirement to `Python >=3.8` while keeping development and release validation based on Python 3.8.
 - Documented the dependency policy that reuses `baihe-autogui` as the primary extension base and keeps local workspace development on sibling repositories.
+- Aligned the runtime baseline with `baihe-autogui>=0.1.11`, which now carries the logging and Windows automation dependencies inspect relies on.
 
 ## [0.1.0] - 2026-03-28
 
