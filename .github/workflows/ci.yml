@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: jiangbaihe/baihe-autogui
-          ref: v0.1.12
+          ref: v0.1.15
           path: baihe-autogui
 
       - name: Set up Python

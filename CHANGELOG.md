@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-03-29
+
+### Fixed
+
+- Raised the minimum `baihe-autogui` dependency to `0.1.15` so inspect tracks the refreshed main package baseline.
+- Updated the CI and release workflows to validate against `baihe-autogui v0.1.15`, matching the current sibling workspace baseline used by the lockfile and local development.
+
 ## [0.1.3] - 2026-03-29
 
 ### Fixed
