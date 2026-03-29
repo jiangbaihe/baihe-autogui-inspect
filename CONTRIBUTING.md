@@ -28,6 +28,7 @@ Project priorities:
 - End users should normally install inspect via `baihe-autogui[inspect]` or `baihe-autogui[extra]`
 - Prefer reusing dependencies already declared by `baihe-autogui` instead of duplicating them here
 - Only add an inspect-side dependency when it is truly specific to `baihe-autogui-inspect`
+- Screen highlight rendering should stay aligned with `baihe-autogui` and reuse its overlay backend when practical
 - CI and release validation should resolve `baihe-autogui` from publishable package metadata, not from a checked-out sibling workspace
 - When regenerating `uv.lock`, prefer `uv lock --no-sources` so the lockfile does not accidentally capture a local editable sibling checkout
 - For local cross-repo debugging against an unreleased `baihe-autogui`, install it explicitly after `uv sync`, for example:

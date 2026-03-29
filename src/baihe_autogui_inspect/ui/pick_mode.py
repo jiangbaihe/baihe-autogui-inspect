@@ -12,7 +12,7 @@ from baihe_autogui_inspect.core.pick_loader import (
     restore_system_cursors,
     set_global_crosshair,
 )
-from baihe_autogui_inspect.ui.overlay import HighlightOverlay
+from baihe_autogui_inspect.ui.overlay import SOFT_RED, HighlightOverlay
 from baihe_autogui_inspect.ui.qt_helpers import set_checked_silently, show_window_foreground
 
 
@@ -113,7 +113,7 @@ class PickModeController(QObject):
         self._status_bar.showMessage(message)
 
     def _start_hover_tracking(self, backend: str) -> None:
-        self._overlay = HighlightOverlay(color=QColor("#ff0000"))
+        self._overlay = HighlightOverlay(color=QColor(SOFT_RED))
         self._hover_tracker = HoverTracker(backend, parent=self)
         self._hover_tracker.hovered.connect(self._overlay.show_rect)  # type: ignore[attr-defined]
         self._hover_tracker.cleared.connect(self._overlay.hide_rect)  # type: ignore[attr-defined]

@@ -10,7 +10,7 @@ This project is based on the earlier `pyside6-inspect` work originally developed
 - Switch between `uia`, `win32`, and `atspi` backends
 - Inspect properties of the selected element
 - Pick an element directly from the desktop
-- Highlight the selected or hovered element on screen
+- Highlight the selected or hovered element on screen with the shared `pywin32` overlay backend
 - Show timing information for inspection operations
 - Write logs to both the console and a rotating log file
 
@@ -39,6 +39,7 @@ pip install baihe-autogui-inspect
 `baihe-autogui[extra]` remains available as a compatibility alias for the same extension set.
 
 The main package's `inspect` / `extra` extras track a compatible inspect release line, not necessarily the newest inspect patch on day one. This avoids circular release pressure between the two repositories.
+Selection, flash, and pick-mode outlines reuse the shared `baihe-autogui` Win32 overlay backend, with softer default yellow, green, and red colors for easier visual scanning.
 
 For local development:
 

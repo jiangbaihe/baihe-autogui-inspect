@@ -103,7 +103,7 @@ def test_start_hides_window_and_starts_tracking():
     assert calls == ["crosshair", "hide"]
     assert messages == ["Pick mode: click any UI element on the desktop to locate it"]
     assert timer_calls == ["timer_start"]
-    assert overlay_calls == ["overlay:#ff0000"]
+    assert overlay_calls == ["overlay:#f87171"]
     assert tracker_calls == ["tracker:uia:True", "show_rect", "hide_rect", "tracker_start"]
 
 

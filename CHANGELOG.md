@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Stopped wiring inspect development and release workflows to a checked-out local `baihe-autogui` workspace by default; CI and release validation now rely on publishable package metadata, while local cross-repo overrides are documented as an explicit opt-in step.
+- Replaced the Qt overlay window with the shared `baihe-autogui` Win32 overlay backend and updated default outline colors to a softer yellow / green / red set.
+- Selection highlights now stay visible even when the inspect window loses focus, is minimized, or moves behind other windows; they are cleared only by explicit inspect state changes such as pick mode, node changes, or shutdown.
 
 ## [0.1.4] - 2026-03-29
 

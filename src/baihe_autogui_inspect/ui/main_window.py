@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from loguru import logger
-from PySide6.QtCore import QEvent, Qt, QTimer
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
-    QApplication,
+    QHeaderView,
     QComboBox,
     QLabel,
     QMainWindow,
@@ -82,6 +82,8 @@ class MainWindow(QMainWindow):
         self.treeView.setHeaderHidden(True)
         self.treeView.setAnimated(True)
         self.treeView.setAlternatingRowColors(True)
+        self.treeView.header().setStretchLastSection(False)
+        self.treeView.header().setSectionResizeMode(QHeaderView.ResizeToContents)
 
         self.tableView = QTableView()
         self.tableView.setWordWrap(True)
@@ -115,9 +117,6 @@ class MainWindow(QMainWindow):
         self._timing = TimingPresenter(self.timingLabel)
 
     def _connect_signals(self) -> None:
-        app = QApplication.instance()
-        if app is not None:
-            app.applicationStateChanged.connect(self._on_application_state_changed)
         self.backendCombo.currentTextChanged.connect(self._start_loading)
         self.refreshButton.clicked.connect(self._reload_current_backend)
         self.pickButton.toggled.connect(self._on_pick_toggled)
@@ -232,14 +231,7 @@ class MainWindow(QMainWindow):
         self.status_bar.showMessage(message)
 
     def _selection_highlight_allowed(self) -> bool:
-        if self._pick_mode.is_active():
-            return False
-        if not self.isVisible() or self.isMinimized():
-            return False
-        app = QApplication.instance()
-        if app is None:
-            return True
-        return bool(app.applicationState() == Qt.ApplicationState.ApplicationActive)
+        return not self._pick_mode.is_active()
 
     def _on_current_node_changed(self, node: NodeInfo | None) -> None:
         if node is None:
@@ -320,25 +312,6 @@ class MainWindow(QMainWindow):
         self.playgroundPanel.set_running(False)
         self.playgroundPanel.set_status(f"Locator code failed: {message}")
         self._show_status(f"Locator code failed: {message}")
-
-    def _on_application_state_changed(self, state: Qt.ApplicationState) -> None:
-        if state == Qt.ApplicationState.ApplicationActive:
-            self._sync_selection_highlight()
-            return
-        self._clear_selection_highlight()
-
-    def changeEvent(self, event: QEvent) -> None:
-        super().changeEvent(event)
-        if event.type() in (QEvent.Type.ActivationChange, QEvent.Type.WindowStateChange):
-            self._sync_selection_highlight()
-
-    def hideEvent(self, event) -> None:
-        self._clear_selection_highlight()
-        super().hideEvent(event)
-
-    def showEvent(self, event) -> None:
-        super().showEvent(event)
-        self._sync_selection_highlight()
 
     def closeEvent(self, event) -> None:
         self._pick_mode.shutdown()

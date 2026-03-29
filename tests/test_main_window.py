@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from PySide6.QtGui import QStandardItem, QStandardItemModel
+from PySide6.QtWidgets import QHeaderView
+
 from baihe_autogui_inspect.ui.main_window import MainWindow
 
 
@@ -7,57 +10,32 @@ def test_main_window_initializes_without_attribute_errors(qapp, monkeypatch):
     monkeypatch.setattr(MainWindow, "_start_loading", lambda self, backend: None)
 
     window = MainWindow()
+    model = QStandardItemModel()
+    model.appendRow(QStandardItem("node"))
+    window.treeView.setModel(model)
 
     assert window.tableView.model() is not None
     assert window.splitter.count() == 3
+    assert not window.treeView.header().stretchLastSection()
+    assert window.treeView.header().sectionResizeMode(0) == QHeaderView.ResizeToContents
 
 
 def test_selection_highlight_allowed_when_window_active():
     window = MainWindow.__new__(MainWindow)
     window._pick_mode = type("PickModeStub", (), {"is_active": lambda self: False})()
-    window.isVisible = lambda: True
-    window.isMinimized = lambda: False
-
-    original_qapplication = MainWindow._selection_highlight_allowed.__globals__["QApplication"]
-    original_qt = MainWindow._selection_highlight_allowed.__globals__["Qt"]
-
-    class AppStub:
-        @staticmethod
-        def instance():
-            return AppStub()
-
-        def applicationState(self):
-            return original_qt.ApplicationState.ApplicationActive
-
-    MainWindow._selection_highlight_allowed.__globals__["QApplication"] = AppStub
-    try:
-        assert window._selection_highlight_allowed() is True
-    finally:
-        MainWindow._selection_highlight_allowed.__globals__["QApplication"] = original_qapplication
+    assert window._selection_highlight_allowed() is True
 
 
-def test_selection_highlight_disallowed_when_app_inactive():
+def test_selection_highlight_allowed_when_window_inactive():
     window = MainWindow.__new__(MainWindow)
     window._pick_mode = type("PickModeStub", (), {"is_active": lambda self: False})()
-    window.isVisible = lambda: True
-    window.isMinimized = lambda: False
+    assert window._selection_highlight_allowed() is True
 
-    original_qapplication = MainWindow._selection_highlight_allowed.__globals__["QApplication"]
-    original_qt = MainWindow._selection_highlight_allowed.__globals__["Qt"]
 
-    class AppStub:
-        @staticmethod
-        def instance():
-            return AppStub()
-
-        def applicationState(self):
-            return original_qt.ApplicationState.ApplicationInactive
-
-    MainWindow._selection_highlight_allowed.__globals__["QApplication"] = AppStub
-    try:
-        assert window._selection_highlight_allowed() is False
-    finally:
-        MainWindow._selection_highlight_allowed.__globals__["QApplication"] = original_qapplication
+def test_selection_highlight_allowed_when_window_minimized():
+    window = MainWindow.__new__(MainWindow)
+    window._pick_mode = type("PickModeStub", (), {"is_active": lambda self: False})()
+    assert window._selection_highlight_allowed() is True
 
 
 def test_selection_highlight_disallowed_during_pick_mode():

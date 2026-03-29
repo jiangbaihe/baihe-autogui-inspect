@@ -4,7 +4,7 @@ from PySide6.QtCore import QObject
 from PySide6.QtGui import QColor
 
 from baihe_autogui_inspect.core.inspector import NodeInfo, element_rectangle
-from baihe_autogui_inspect.ui.overlay import HighlightOverlay
+from baihe_autogui_inspect.ui.overlay import SOFT_YELLOW, HighlightOverlay
 
 
 class SelectionHighlighter(QObject):
@@ -25,7 +25,7 @@ class SelectionHighlighter(QObject):
             return
 
         if self._overlay is None:
-            self._overlay = HighlightOverlay(color=QColor("#facc15"))
+            self._overlay = HighlightOverlay(color=QColor(SOFT_YELLOW))
         self._overlay.show_rect(*rect)
 
     def clear(self) -> None:

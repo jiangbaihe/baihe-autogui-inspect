@@ -4,7 +4,7 @@ from PySide6.QtCore import QObject, QTimer
 from PySide6.QtGui import QColor
 
 from baihe_autogui_inspect.core.inspector import element_rectangle
-from baihe_autogui_inspect.ui.overlay import HighlightOverlay
+from baihe_autogui_inspect.ui.overlay import SOFT_GREEN, HighlightOverlay
 
 
 class FlashHighlighter(QObject):
@@ -31,7 +31,7 @@ class FlashHighlighter(QObject):
             return False
 
         if self._overlay is None:
-            self._overlay = HighlightOverlay(color=QColor("#22c55e"))
+            self._overlay = HighlightOverlay(color=QColor(SOFT_GREEN))
         self._rect = rect
         self._remaining_steps = max(1, self._duration_ms // self._blink_interval_ms)
         self._visible = False

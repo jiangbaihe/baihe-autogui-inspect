@@ -38,7 +38,7 @@ def test_flash_starts_green_blink_sequence(monkeypatch):
     highlighter._timer = TimerStub()
 
     assert highlighter.flash(object()) is True
-    assert calls == ["overlay:#22c55e", "timer_start:100", "show:(1, 2, 11, 22)"]
+    assert calls == ["overlay:#4ade80", "timer_start:100", "show:(1, 2, 11, 22)"]
 
 
 def test_advance_flash_clears_after_remaining_steps():
